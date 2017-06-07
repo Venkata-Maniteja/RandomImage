@@ -89,7 +89,6 @@ class ViewController: UIViewController {
 //        cornerArray.append(CGRect(x:1,y:1,width:1,height:1))
         //bottom-right corner
 //        cornerArray.append(CGRect(x:1,y:1,width:1,height:1))
-        
         return cornerArray
     }
 
