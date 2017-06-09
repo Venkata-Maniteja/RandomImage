@@ -17,6 +17,7 @@ class ViewController: UIViewController,URLSessionDelegate,URLSessionDataDelegate
     @IBOutlet weak var progressView: UIProgressView!
     var imgURLArray:[URL]?
     var imgArray:[UIImage]?
+    var animationOptionsArray:[UIViewAnimationOptions]?
     var imgTimer:Timer?
     var progressViewTimer:Timer?
     var progressValue: Float = 1.0
@@ -50,6 +51,15 @@ class ViewController: UIViewController,URLSessionDelegate,URLSessionDataDelegate
         //Teh default image size is 300x300
         imgURLArray = [URL]()
         imgArray = [UIImage]()
+        animationOptionsArray=[UIViewAnimationOptions]()
+        animationOptionsArray?.append(UIViewAnimationOptions.transitionCurlUp)
+        animationOptionsArray?.append(UIViewAnimationOptions.transitionCurlDown)
+        animationOptionsArray?.append(UIViewAnimationOptions.transitionCrossDissolve)
+        animationOptionsArray?.append(UIViewAnimationOptions.transitionFlipFromTop)
+        animationOptionsArray?.append(UIViewAnimationOptions.transitionFlipFromRight)
+        animationOptionsArray?.append(UIViewAnimationOptions.transitionFlipFromBottom)
+        
+        
         imgURLArray?.append(URL.init(string: "https://loremflickr.com/600/600")!)
         imgURLArray?.append(URL.init(string: "https://lorempixel.com/600/600/")!)
         
@@ -107,7 +117,10 @@ class ViewController: UIViewController,URLSessionDelegate,URLSessionDataDelegate
                 
                 if let arrCount = self.imgArray?.count{
                     if arrCount > 0{
-                      self.imgView.image=self.imgArray?.randomItem()
+                        UIView.transition(with: self.imgView, duration: 1.0, options: (self.animationOptionsArray?.randomItem())!, animations: {
+                             self.imgView.image=self.imgArray?.randomItem()
+                        }, completion: nil)
+                        
                     }
                 }
             }
