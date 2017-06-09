@@ -13,6 +13,7 @@
 		B88D30C81EE877220046A361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88D30C71EE877220046A361 /* Assets.xcassets */; };
 		B88D30CB1EE877220046A361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88D30C91EE877220046A361 /* LaunchScreen.storyboard */; };
 		B88D30D31EE8840B0046A361 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D30D21EE8840B0046A361 /* SelectionView.swift */; };
+		B8B951F01EEB05A1006D9D62 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B951EF1EEB05A1006D9D62 /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B88D30CA1EE877220046A361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B88D30CC1EE877220046A361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B88D30D21EE8840B0046A361 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		B8B951EF1EEB05A1006D9D62 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				B88D30C01EE877220046A361 /* AppDelegate.swift */,
 				B88D30C21EE877220046A361 /* ViewController.swift */,
+				B8B951EF1EEB05A1006D9D62 /* Array.swift */,
 				B88D30C41EE877220046A361 /* Main.storyboard */,
 				B88D30D21EE8840B0046A361 /* SelectionView.swift */,
 				B88D30C71EE877220046A361 /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B88D30C31EE877220046A361 /* ViewController.swift in Sources */,
+				B8B951F01EEB05A1006D9D62 /* Array.swift in Sources */,
 				B88D30C11EE877220046A361 /* AppDelegate.swift in Sources */,
 				B88D30D31EE8840B0046A361 /* SelectionView.swift in Sources */,
 			);
@@ -318,6 +322,7 @@
 				B88D30D11EE877220046A361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

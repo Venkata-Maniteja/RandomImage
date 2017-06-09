@@ -9,7 +9,11 @@
 import UIKit
 
 class SelectionView: UIView {
-
+    
+    var topLeftPoint:CGPoint?
+    var topRightPoint:CGPoint?
+    var bottomRightPoint:CGPoint?
+    var bottomLeftPoint:CGPoint?
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -17,40 +21,65 @@ class SelectionView: UIView {
         // Drawing code
         drawSelectionFrame(frame: rect)
     }
+    
+    
+    convenience init(frame:CGRect, pt1:CGPoint,pt2:CGPoint,pt3:CGPoint,pt4:CGPoint){
+        
+        self.init(frame: frame)
+        
+        self.topLeftPoint=pt1
+        self.topRightPoint=pt2
+        self.bottomLeftPoint=pt3
+        self.bottomRightPoint=pt4
+    }
  
     
     func drawSelectionFrame(frame: CGRect) {
         
-        //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRect(x: frame.minX + floor(frame.width * 0.04525 + 0.5), y: frame.minY + floor(frame.height * 0.06494 + 0.5), width: floor(frame.width * 0.95475 + 0.5) - floor(frame.width * 0.04525 + 0.5), height: floor(frame.height * 0.93506 + 0.5) - floor(frame.height * 0.06494 + 0.5)))
+        //// Frames
+        let bottomRightTouchOffsetFrame = CGRect(x: bottomRightPoint!.x, y: bottomRightPoint!.y, width: 25, height: 25)
+        let topRightTouchOffsetFrame = CGRect(x: topRightPoint!.x, y: topRightPoint!.y, width: 25, height: 25)
+        let bottomLeftTouchOffsetFrame = CGRect(x: bottomLeftPoint!.x, y: bottomLeftPoint!.y, width: 25, height: 25)
+        let topLeftTouchOffsetFrame = CGRect(x: topLeftPoint!.x, y: topLeftPoint!.y, width: 25, height: 25)
+        
+        
+        //// Oval 4 Drawing
+        let oval4Path = UIBezierPath(ovalIn: CGRect(x: bottomRightTouchOffsetFrame.minX + floor((bottomRightTouchOffsetFrame.width )), y: bottomRightTouchOffsetFrame.minY + floor((bottomRightTouchOffsetFrame.height )), width: 10, height: 10))
+        UIColor.blue.setFill()
+        oval4Path.fill()
+        
+        
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: topLeftTouchOffsetFrame.minX + topLeftTouchOffsetFrame.width, y: topLeftTouchOffsetFrame.minY + topLeftTouchOffsetFrame.height))
+        bezierPath.addLine(to: CGPoint(x: topRightTouchOffsetFrame.minX +  topRightTouchOffsetFrame.width, y: topRightTouchOffsetFrame.minY +  topRightTouchOffsetFrame.height))
+        bezierPath.addLine(to: CGPoint(x: bottomRightTouchOffsetFrame.minX +  bottomRightTouchOffsetFrame.width, y: bottomRightTouchOffsetFrame.minY +  bottomRightTouchOffsetFrame.height))
+        bezierPath.addLine(to: CGPoint(x: bottomLeftTouchOffsetFrame.minX +  bottomLeftTouchOffsetFrame.width, y: bottomLeftTouchOffsetFrame.minY +  bottomLeftTouchOffsetFrame.height))
+        bezierPath.addLine(to: CGPoint(x: topLeftTouchOffsetFrame.minX +  topLeftTouchOffsetFrame.width, y: topLeftTouchOffsetFrame.minY +  topLeftTouchOffsetFrame.height))
+        bezierPath.close()
         UIColor.blue.setStroke()
-        rectanglePath.lineWidth = 1
-        rectanglePath.stroke()
+        bezierPath.lineWidth = 1
+        bezierPath.stroke()
         
         
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: frame.minX + floor((frame.width - 10) * 0.02370 + 0.5), y: frame.minY + floor((frame.height - 10) * 0.04167 + 0.5), width: 10, height: 10))
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: topRightTouchOffsetFrame.minX + floor((topRightTouchOffsetFrame.width ) ), y: topRightTouchOffsetFrame.minY + floor((topRightTouchOffsetFrame.height) ), width: 10, height: 10))
         UIColor.blue.setFill()
         ovalPath.fill()
         
         
         //// Oval 2 Drawing
-        let oval2Path = UIBezierPath(ovalIn: CGRect(x: frame.minX + floor((frame.width - 10) * 0.02370 + 0.5), y: frame.minY + floor((frame.height - 10) * 0.95833 + 0.5), width: 10, height: 10))
+        let oval2Path = UIBezierPath(ovalIn: CGRect(x: bottomLeftTouchOffsetFrame.minX + floor((bottomLeftTouchOffsetFrame.width) ), y: bottomLeftTouchOffsetFrame.minY + floor((bottomLeftTouchOffsetFrame.height) ), width: 10, height: 10))
         UIColor.blue.setFill()
         oval2Path.fill()
         
         
         //// Oval 3 Drawing
-        let oval3Path = UIBezierPath(ovalIn: CGRect(x: frame.minX + floor((frame.width - 10) * 0.97630 + 0.5), y: frame.minY + floor((frame.height - 10) * 0.95833 + 0.5), width: 10, height: 10))
+        let oval3Path = UIBezierPath(ovalIn: CGRect(x: topLeftTouchOffsetFrame.minX + floor((topLeftTouchOffsetFrame.width) ), y: topLeftTouchOffsetFrame.minY + floor((topLeftTouchOffsetFrame.height) ), width: 10, height: 10))
         UIColor.blue.setFill()
         oval3Path.fill()
-        
-        
-        //// Oval 4 Drawing
-        let oval4Path = UIBezierPath(ovalIn: CGRect(x: frame.minX + floor((frame.width - 10) * 0.97630 + 0.5), y: frame.minY + floor((frame.height - 10) * 0.04167 + 0.5), width: 10, height: 10))
-        UIColor.blue.setFill()
-        oval4Path.fill()
     }
+    
     
 
 }

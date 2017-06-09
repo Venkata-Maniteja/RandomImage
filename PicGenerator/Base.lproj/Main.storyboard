@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,11 +21,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QGn-Vc-tEZ">
+                                <rect key="frame" x="16" y="183.5" width="343" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="tIo-8S-eot"/>
+                                </constraints>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="VgF-Ms-QzT">
+                                <rect key="frame" x="20" y="143.5" width="335" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="CMi-g7-Vab"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QGn-Vc-tEZ" firstAttribute="top" secondItem="VgF-Ms-QzT" secondAttribute="bottom" constant="20" id="2Zw-ew-uIY"/>
+                            <constraint firstItem="QGn-Vc-tEZ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3wX-at-C7q"/>
+                            <constraint firstItem="QGn-Vc-tEZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="H36-rj-6SW"/>
+                            <constraint firstItem="QGn-Vc-tEZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Qjm-q7-EZ3"/>
+                            <constraint firstAttribute="trailing" secondItem="VgF-Ms-QzT" secondAttribute="trailing" constant="20" id="XAD-5Q-Ml6"/>
+                            <constraint firstItem="VgF-Ms-QzT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="vhx-3u-APQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgView" destination="QGn-Vc-tEZ" id="uII-dF-nxI"/>
+                        <outlet property="progressView" destination="VgF-Ms-QzT" id="6O3-rt-xXr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="116" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
